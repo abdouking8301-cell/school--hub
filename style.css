@@ -90,3 +90,126 @@ header p {
     font-size: 32px !important;
     color: #10b981 !important; /* Vert pour la moyenne */
 }
+/* --- VERSION MOBILE (Responsive) --- */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Le menu passe au-dessus du contenu */
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 15px;
+    }
+
+    .sidebar ul {
+        display: flex;
+        overflow-x: auto; /* Permet de faire défiler le menu horizontalement */
+        gap: 10px;
+    }
+
+    .sidebar li {
+        white-space: nowrap; /* Empêche le texte de passer à la ligne */
+        margin-bottom: 0;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+}
+/* --- STYLE DU BOUTON MODE SOMBRE --- */
+.theme-btn {
+    background-color: #334155;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.theme-btn:hover {
+    background-color: #475569;
+}
+
+/* --- LES COULEURS DU MODE SOMBRE --- */
+/* Quand on ajoute la classe "dark-mode" au body, ces couleurs s'appliquent */
+body.dark-mode {
+    background-color: #0f172a; /* Fond très foncé */
+}
+
+body.dark-mode .main-content h1 {
+    color: #f8fafc; /* Titres en blanc */
+}
+
+body.dark-mode .main-content p {
+    color: #cbd5e1; /* Textes en gris clair */
+}
+
+body.dark-mode .card {
+    background-color: #1e293b; /* Cartes plus foncées */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Ombre plus prononcée */
+}
+
+body.dark-mode .card h3 {
+    color: #94a3b8;
+}
+
+body.dark-mode .card p {
+    color: #f8fafc;
+}
+
+/* On garde la moyenne en vert mais un peu plus fluo */
+body.dark-mode .big-number {
+    color: #34d399 !important;
+}
+/* --- STYLE DE L'EMPLOI DU TEMPS --- */
+.emploi-du-temps {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.emploi-du-temps th, .emploi-du-temps td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.emploi-du-temps th {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-weight: 600;
+}
+
+/* Les couleurs des matières */
+.maths { background-color: rgba(56, 189, 248, 0.2); color: #0284c7; font-weight: 600;}
+.francais { background-color: rgba(167, 139, 250, 0.2); color: #7c3aed; font-weight: 600;}
+.histoire { background-color: rgba(251, 191, 36, 0.2); color: #d97706; font-weight: 600;}
+.anglais { background-color: rgba(52, 211, 153, 0.2); color: #059669; font-weight: 600;}
+.sport { background-color: rgba(248, 113, 113, 0.2); color: #dc2626; font-weight: 600;}
+
+/* Adaptation du tableau au mode sombre */
+body.dark-mode .emploi-du-temps th {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-bottom: 1px solid #334155;
+}
+
+body.dark-mode .emploi-du-temps td {
+    border-bottom: 1px solid #334155;
+}
+
+/* On assombrit un peu les couleurs pastel en mode sombre */
+body.dark-mode .maths { background-color: rgba(56, 189, 248, 0.15); color: #7dd3fc; }
+body.dark-mode .francais { background-color: rgba(167, 139, 250, 0.15); color: #c4b5fd; }
+body.dark-mode .histoire { background-color: rgba(251, 191, 36, 0.15); color: #fcd34d; }
+body.dark-mode .anglais { background-color: rgba(52, 211, 153, 0.15); color: #6ee7b7; }
+body.dark-mode .sport { background-color: rgba(248, 113, 113, 0.15); color: #fca5a5; }

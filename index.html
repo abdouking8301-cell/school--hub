@@ -5,45 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Application Scolaire</title>
     <link rel="stylesheet" href="style.css">
-    <!-- On ajoute une police Google Fonts pour le côté moderne -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Le menu de gauche -->
     <div class="sidebar">
         <h2>🎓 Scolaris</h2>
         <ul>
-            <li class="active">🏠 Tableau de bord</li>
-            <li>📚 Mes cours</li>
-            <li>📝 Mes notes</li>
-            <li>💬 Messagerie</li>
+            <li class="active" onclick="showPage('dashboard', event)">🏠 Tableau de bord</li>
+            <li onclick="showPage('cours', event)">📚 Mes cours</li>
+            <li onclick="showPage('notes', event)">📝 Mes notes</li>
+            <li onclick="showPage('messages', event)">💬 Messagerie</li>
         </ul>
+        <button id="theme-toggle" class="theme-btn">🌙 Mode Sombre</button>
     </div>
 
-    <!-- La zone principale à droite -->
     <div class="main-content">
-        <header>
-            <h1>Bonjour, Élève ! 👋</h1>
-            <p>Voici ton résumé pour aujourd'hui.</p>
-        </header>
+        <!-- PAGE 1 -->
+        <div id="dashboard" class="page">
+            <header>
+                <h1>Bonjour, Élève ! 👋</h1>
+                <p>Voici ton résumé pour aujourd'hui.</p>
+            </header>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Moyenne Générale</h3>
+                    <p class="big-number">15.5/20</p>
+                </div>
+                <div class="card">
+                    <h3>Prochain contrôle</h3>
+                    <p>Maths - Vendredi</p>
+                </div>
+            </div>
+        </div>
 
-        <!-- Les petites cartes d'information -->
-        <div class="cards-container">
+        <!-- PAGE 2 : Mes cours -->
+<div id="cours" class="page" style="display: none;">
+    <header>
+        <h1>📚 Mon Emploi du temps</h1>
+        <p>Voici tes cours de la semaine.</p>
+    </header>
+    
+    <div class="card" style="width: 100%; overflow-x: auto;">
+        <table class="emploi-du-temps">
+            <thead>
+                <tr>
+                    <th>Heure</th>
+                    <th>Lundi</th>
+                    <th>Mardi</th>
+                    <th>Mercredi</th>
+                    <th>Jeudi</th>
+                    <th>Vendredi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>08h00 - 10h00</td>
+                    <td class="maths">Maths</td>
+                    <td class="francais">Français</td>
+                    <td class="maths">Maths</td>
+                    <td class="histoire">Histoire</td>
+                    <td class="anglais">Anglais</td>
+                </tr>
+                <tr>
+                    <td>10h15 - 12h15</td>
+                    <td class="anglais">Anglais</td>
+                    <td class="maths">Maths</td>
+                    <td class="sport">Sport</td>
+                    <td class="francais">Français</td>
+                    <td class="histoire">Histoire</td>
+                </tr>
+                <tr>
+                    <td>13h30 - 15h30</td>
+                    <td class="histoire">Histoire</td>
+                    <td class="sport">Sport</td>
+                    <td style="color: #94a3b8; font-style: italic;">Fin des cours</td>
+                    <td class="maths">Maths</td>
+                    <td class="francais">Français</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+        <!-- PAGE 3 -->
+        <div id="notes" class="page" style="display: none;">
+            <header>
+                <h1>📝 Mes notes</h1>
+                <p>Calcule ta moyenne ici.</p>
+            </header>
             <div class="card">
-                <h3>Moyenne Générale</h3>
-                <p class="big-number">15.5/20</p>
+                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <input type="number" id="note" placeholder="Note (ex: 15)" style="padding: 8px; border-radius: 5px; border: 1px solid #ccc; width: 100px;">
+                    <input type="number" id="coef" placeholder="Coef (ex: 2)" style="padding: 8px; border-radius: 5px; border: 1px solid #ccc; width: 100px;">
+                    <button onclick="calculerMoyenne()" class="theme-btn" style="width: auto; margin-top: 0;">Ajouter</button>
+                </div>
+                <p id="resultat-moyenne" style="font-size: 20px; font-weight: bold; color: #38bdf8;">Moyenne : --/20</p>
             </div>
-            <div class="card">
-                <h3>Prochain contrôle</h3>
-                <p>Maths - Vendredi</p>
-            </div>
-            <div class="card">
-                <h3>Devoirs à faire</h3>
-                <p>2 devoirs en attente</p>
-            </div>
+        </div>
+
+        <!-- PAGE 4 -->
+        <div id="messages" class="page" style="display: none;">
+            <header><h1>💬 Messagerie</h1><p>Discute avec tes camarades.</p></header>
+            <div class="card"><p>Pas de nouveaux messages.</p></div>
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
