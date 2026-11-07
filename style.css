@@ -1,0 +1,92 @@
+/* On enlève les marges par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex; /* Place le menu et le contenu côte à côte */
+    background-color: #f4f7f6; /* Un gris très clair pour le fond */
+    min-height: 100vh;
+}
+
+/* --- STYLE DU MENU (SIDEBAR) --- */
+.sidebar {
+    width: 250px;
+    background-color: #1e293b; /* Bleu nuit foncé */
+    color: white;
+    padding: 30px 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 40px;
+    text-align: center;
+    color: #38bdf8; /* Bleu clair */
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.sidebar li:hover, .sidebar li.active {
+    background-color: #334155; /* Effet de survol */
+}
+
+/* --- STYLE DU CONTENU PRINCIPAL --- */
+.main-content {
+    flex: 1; /* Prend tout l'espace restant */
+    padding: 40px;
+}
+
+header h1 {
+    color: #0f172a;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+/* --- STYLE DES CARTES --- */
+.cards-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Petite ombre moderne */
+    border-top: 5px solid #38bdf8; /* Ligne de couleur en haut */
+}
+
+.card h3 {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.card p {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.big-number {
+    font-size: 32px !important;
+    color: #10b981 !important; /* Vert pour la moyenne */
+}
